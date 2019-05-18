@@ -1,0 +1,33 @@
+<!-- {% load static %} -->
+<html>
+<head>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<link href="{% static "css/stylesheet.css" %}" rel="stylesheet" id="bootstrap-css">
+
+
+</head>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+<div class="container">
+
+    <hgroup class="mb20" style="background-color:#333333">
+		<center><h1 style="color:white;">Movie Details</h1></center>
+				
+	</hgroup>
+
+    <section class="col-xs-12 col-sm-6 col-md-12">
+		
+      <form>
+  
+       <h4>{{content|linebreaks}}</h4>
+       <center><img src={{urllink}}></center>
+			</form>
+		<a href="/index/">Back</a>	
+			<span class="clearfix border"></span>
+		
+	</section>
+</div>
+</body>
+</html>

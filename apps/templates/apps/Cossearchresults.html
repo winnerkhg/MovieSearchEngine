@@ -1,0 +1,60 @@
+{% load static %}
+<html>
+<head>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<link href="{% static "css/stylesheet.css" %}" rel="stylesheet" id="bootstrap-css">
+
+
+</head>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+<div class="container">
+
+    <hgroup class="mb20" style="background-color:#333333">
+		<center><h1 style="color:white;">Search Results</h1></center>
+		<h2 class="lead" style="color:white;"><strong class="text-danger" style="color:white;">{{num}}</strong> results were found for the search for <strong class="text-danger">{{query}}</strong></h2>								
+	</hgroup>
+
+    <section class="col-xs-12 col-sm-6 col-md-12">
+		<article class="search-result row">
+      <form method="POST" action = "{% url 'cosrelevence' %}">
+        {% csrf_token %}
+        <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for i,j,k in results %}
+                  <tr>
+                  <td>
+                    <div class="media">
+                      
+                      <div class="media-body">
+                        <p>{{k}}</p>
+                      </div>
+                    </div>
+                  </td>
+                  {% if j != -1 %}
+                  <td>
+                    <button value="{{j}}" type="submit" class="main_btn" name="id" data-toggle="modal">
+                            Open
+                    </button>
+                  </td>
+                  {% endif %}
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+			</form>
+			<span class="clearfix border"></span>
+		</article>			
+
+	</section>
+</div>
+</body>
+</html>
